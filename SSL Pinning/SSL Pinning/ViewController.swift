@@ -35,6 +35,42 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: URLSessionDelegate {
+    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        
+        guard let serverTrust = challenge.protectionSpace.serverTrust else {
+            completionHandler(.cancelAuthenticationChallenge, nil)
+            return
+        }
+        
+        let certificate = SecTrustGetCertificateAtIndex(serverTrust, 0)
+        
+        //SSL Policies for domain name check
+        let policy = NSMutableArray()
+        policy.add(SecPolicyCreateSSL(true, challenge.protectionSpace.host as CFString))
+        
+        //evaluate server certificate
+        let isServerTrusted = SecTrustEvaluateWithError(serverTrust, nil)
+        
+        //Remote and Local Certificate data
+        let remoteCertificateData: NSData = SecCertificateCopyData(certificate!)
+        
+        let pathToCertificate = Bundle.main.path(forResource: "mocky", ofType: ".cer")
+        let localCertificateData: NSData = NSData(contentsOfFile: pathToCertificate!)!
+        
+        //Compare Certificates
+        if isServerTrusted && remoteCertificateData.isEqual(to: localCertificateData as Data) {
+            let credentials = URLCredential(trust: serverTrust)
+            print("SSL Pinning is successful")
+            completionHandler(.useCredential, nil)
+        } else {
+            debugPrint("Signature Failed")
+            completionHandler(.cancelAuthenticationChallenge, nil)
+        }
+    }
+}
+
+
 
 class DummyResponse: Codable {
     var purpose: String

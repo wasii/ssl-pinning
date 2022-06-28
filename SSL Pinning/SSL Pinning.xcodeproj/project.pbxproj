@@ -13,6 +13,7 @@
 		C6A2F2E4286B2972004FDED4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A2F2E2286B2972004FDED4 /* Main.storyboard */; };
 		C6A2F2E6286B2972004FDED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6A2F2E5286B2972004FDED4 /* Assets.xcassets */; };
 		C6A2F2E9286B2972004FDED4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A2F2E7286B2972004FDED4 /* LaunchScreen.storyboard */; };
+		C6A2F2F3286B2CB3004FDED4 /* mocky.cer in Resources */ = {isa = PBXBuildFile; fileRef = C6A2F2F2286B2CB3004FDED4 /* mocky.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C6A2F2E5286B2972004FDED4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6A2F2E8286B2972004FDED4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6A2F2EA286B2972004FDED4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6A2F2F2286B2CB3004FDED4 /* mocky.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = mocky.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		C6A2F2DB286B2972004FDED4 /* SSL Pinning */ = {
 			isa = PBXGroup;
 			children = (
+				C6A2F2F2286B2CB3004FDED4 /* mocky.cer */,
 				C6A2F2DC286B2972004FDED4 /* AppDelegate.swift */,
 				C6A2F2DE286B2972004FDED4 /* SceneDelegate.swift */,
 				C6A2F2E0286B2972004FDED4 /* ViewController.swift */,
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6A2F2F3286B2CB3004FDED4 /* mocky.cer in Resources */,
 				C6A2F2E9286B2972004FDED4 /* LaunchScreen.storyboard in Resources */,
 				C6A2F2E6286B2972004FDED4 /* Assets.xcassets in Resources */,
 				C6A2F2E4286B2972004FDED4 /* Main.storyboard in Resources */,
